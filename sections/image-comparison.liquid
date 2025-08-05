@@ -1,0 +1,52 @@
+{{ 'beer-slider.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.before_image == blank or section.settings.after_image == blank %} 
+    <p>Please select both before and after images in the section settings.</p>
+{% else %}
+
+<div id="beer-slider" class="beer-slider" data-beer-label="{{ section.settings.before_label | escape }}">
+    {{ section.settings.before_image | image_url: width: 500, height: 500 | image_tag }}
+<div class="beer-reveal" data-beer-label="{{ section.settings.after_label | escape }}">
+    {{ section.settings.after_image | image_url: width: 500, height: 500 | image_tag }}
+</div>
+</div>
+{% endif %}
+
+<script src="{{ 'beer-slider.js' | asset_url }}" defer></script>
+<script>
+  var slider = new BeerSlider( document.getElementById( "beer-slider" ) );
+</script>
+{% schema %}
+{
+  "name": "Image Comparison",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before Image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before Label",
+      "default": "Before"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After Image"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After Label",
+      "default": "After"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Comparison"
+    }
+  ]
+}
+{% endschema %}
