@@ -85,11 +85,20 @@
         "after_image": "shopify://shop_images/Main.jpg",
         "after_label": "After"
       }
+    },
+    "expandable_card_aabdU6": {
+      "type": "expandable-card",
+      "name": "Expandable Card",
+      "settings": {
+        "title": "Expandable Card Title",
+        "content": "This is the expandable card content."
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "image_comparison_ay6FHk"
+    "image_comparison_ay6FHk",
+    "expandable_card_aabdU6"
   ]
 }
